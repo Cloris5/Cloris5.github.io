@@ -30,6 +30,20 @@ python3 -m http.server 8000
 
 直接双击 `projects/midnight-colossus.html` 也可以运行；若浏览器限制本地模块加载，请走上面的 HTTP 服务。
 
+## 推送到 GitHub
+
+本机代理会让普通 `git push` 认证失败，用 `gh-push` 代替即可（已配置，绕开代理并用钥匙串令牌认证）：
+
+```bash
+cd ~/Documents/GitHub/Cloris5.github.io
+git add -A
+git commit -m "说明这次改了什么"
+gh-push              # 等同于推送当前分支到 origin
+# 或指定：gh-push origin main
+```
+
+推送后 GitHub Pages 会自动重新构建，约半分钟后生效。新开的终端若提示找不到 `gh-push`，先执行 `source ~/.zshrc`。
+
 ## 操作提示
 
 《子夜钟楼》：WASD 移动 · 鼠标视角 · Shift 冲刺 · Space 跳 · 左键刺剑 · 右键校准（完美格挡）/ 重击 · Ctrl/E 闪步 · Q 拨针加速 · F 互动 · J 导演模式 · K 录制 · P 拍照
