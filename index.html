@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ATELIER CLORIS · 实时创作与研习档案库</title>
+<meta name="description" content="Cloris 的个人创作档案库：实时 3D 项目、Prompt 卡片、技术拆解与归档规范。以设计规范的秩序，沉淀每一份作品。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231b1a17'/><text x='50' y='72' font-size='68' font-family='Georgia' text-anchor='middle' fill='%23e8d9b5'>C</text></svg>">
+<style>
+:root{
+  --paper:#f3f0e9; --paper-2:#ebe6db; --ink:#1b1a17; --ink-soft:#57534a;
+  --line:#cfc8b9; --brass:#9a7643; --cyan:#2e7f8c; --red:#a4412c;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --serif:"Songti SC","Noto Serif SC","Source Han Serif SC",STSong,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.16;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::selection{background:var(--brass);color:#fff}
+
+/* ---------- shell ---------- */
+.wrap{max-width:1440px;margin:auto;padding:0 clamp(20px,5vw,80px)}
+.rule{border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;border-top:1px solid var(--ink);padding-top:18px;margin-bottom:44px}
+.sec-head h2{font-family:var(--serif);font-size:clamp(26px,3.4vw,44px);font-weight:600;letter-spacing:.02em}
+.sec-head .idx{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--ink-soft);white-space:nowrap}
+.mono{font-family:var(--mono)}
+
+/* ---------- nav ---------- */
+header{position:sticky;top:0;z-index:100;background:rgba(243,240,233,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:17px;letter-spacing:.14em;font-weight:600}
+.brand .mark{width:28px;height:28px;border:1px solid var(--ink);display:grid;place-items:center;font-family:Georgia;font-size:15px;letter-spacing:0;transition:background .2s,color .2s}
+.brand:hover .mark{background:var(--ink);color:var(--paper)}
+.nav-links{display:flex;gap:30px;font-size:13px;letter-spacing:.08em}
+.nav-links a{position:relative;padding:4px 0;color:var(--ink-soft);transition:color .2s}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--ink);transition:right .25s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{right:0}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-right .v{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink-soft)}
+.gh{font-family:var(--mono);font-size:11px;letter-spacing:.1em;border:1px solid var(--line);padding:8px 13px;transition:background .2s,color .2s}
+.gh:hover{background:var(--ink);color:var(--paper)}
+.menu-btn{display:none;font-size:20px}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(70px,12vh,140px) 0 56px;position:relative}
+.hero .kicker{display:flex;align-items:center;gap:14px;margin-bottom:34px}
+.hero .kicker::before{content:"";width:44px;height:1px;background:var(--brass)}
+h1{font-family:var(--serif);font-size:clamp(38px,6.5vw,92px);line-height:1.18;font-weight:600;letter-spacing:-.01em;max-width:16em}
+h1 em{font-style:normal;position:relative;white-space:nowrap}
+h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.08em;background:var(--brass);opacity:.5}
+.hero .sub{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:54px}
+.hero .sub p{max-width:46ch;font-size:clamp(14px,1.3vw,17px);line-height:1.9;color:var(--ink-soft)}
+.scroll-cue{font-family:var(--mono);font-size:11px;letter-spacing:.2em;white-space:nowrap;display:flex;align-items:center;gap:12px}
+.scroll-cue .dot{width:7px;height:7px;border:1px solid var(--brass);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{50%{background:var(--brass);transform:scale(1.3)}}
+
+/* ---------- manifesto ---------- */
+.manifesto{background:var(--ink);color:var(--paper);margin-top:30px}
+.manifesto .wrap{padding-top:clamp(60px,9vw,110px);padding-bottom:clamp(60px,9vw,110px)}
+.manifesto .eyebrow{color:#c9a978}
+.manifesto-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,6vw,90px);align-items:end;margin-top:30px}
+.manifesto h2{font-family:var(--serif);font-size:clamp(28px,4.4vw,60px);line-height:1.35;font-weight:500}
+.manifesto h2 span{color:#c9a978}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.mosaic div{aspect-ratio:1;border:1px solid #4a443a;display:grid;place-items:center;font-family:var(--mono);font-size:10px;color:#9b907d;transition:background .25s,color .25s}
+.mosaic div:hover{background:#c9a978;color:#171613}
+.mosaic div:nth-child(1),.mosaic div:nth-child(6){background:#2a2722}
+
+/* ---------- projects ---------- */
+section{padding:clamp(70px,10vh,130px) 0}
+.project{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:stretch}
+.project-art{position:relative;min-height:420px;background:#17110c;overflow:hidden;border:1px solid var(--ink);display:grid;place-items:center}
+.project-art::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 62%,rgba(176,141,87,.22),transparent 55%),repeating-linear-gradient(0deg,transparent 0 6px,rgba(232,217,181,.035) 6px 7px)}
+.clock{position:relative;width:min(62%,290px);aspect-ratio:1}
+.clock .ring{position:absolute;inset:0;border:1px solid #9a7643;border-radius:50%;box-shadow:0 0 0 8px rgba(154,118,67,.08),inset 0 0 0 10px rgba(154,118,67,.06)}
+.clock .ring.two{inset:9%;border-color:rgba(232,217,181,.4)}
+.clock .tick{position:absolute;left:50%;top:50%;width:1px;height:44%;background:linear-gradient(#c9a978,transparent);transform-origin:50% 0}
+.clock .hub{position:absolute;left:50%;top:50%;width:9px;height:9px;background:#7fe7ff;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 22px #7fe7ff}
+.clock .hand{position:absolute;left:50%;top:50%;transform-origin:50% 0;background:#e8d9b5;border-radius:2px;transform:translate(-50%,0) rotate(0deg)}
+.clock .hand.h{width:3px;height:26%;animation:spin 12s linear infinite}
+.clock .hand.m{width:2px;height:38%;background:#c9a978;animation:spin 3s linear infinite}
+.clock .hand.s{width:1px;height:43%;background:#7fe7ff;animation:spin 1.4s linear infinite}
+@keyframes spin{to{transform:translate(-50%,0) rotate(360deg)}}
+.project-art .tag{position:absolute;left:18px;top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:#9b907d}
+.project-art .year{position:absolute;right:18px;bottom:16px;font-family:Georgia;font-size:clamp(40px,7vw,86px);color:rgba(232,217,181,.11);line-height:1}
+.project-info{display:flex;flex-direction:column;justify-content:center}
+.project-info .meta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+.chip{font-family:var(--mono);font-size:10px;letter-spacing:.12em;border:1px solid var(--line);padding:5px 9px;color:var(--ink-soft)}
+.chip.dark{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.project-info h3{font-family:var(--serif);font-size:clamp(34px,5vw,64px);font-weight:600;line-height:1.1;letter-spacing:.04em}
+.project-info .en{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--brass);margin:12px 0 24px}
+.project-info p{line-height:1.95;color:var(--ink-soft);font-size:15px;max-width:48ch}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0}
+.stats div{background:var(--paper);padding:14px 10px}
+.stats b{display:block;font-family:Georgia;font-size:26px;font-weight:400}
+.stats span{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--ink-soft)}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink);padding:12px 18px;font-size:13px;letter-spacing:.06em;transition:background .2s,color .2s,transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.primary:hover{background:var(--brass);border-color:var(--brass)}
+.btn:not(.primary):hover{background:var(--paper-2)}
+.btn .ar{font-family:var(--mono);font-size:15px}
+
+/* ---------- prompt cards ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:-16px 0 30px}
+.filters button{font-family:var(--mono);font-size:10px;letter-spacing:.12em;border:1px solid var(--line);padding:7px 13px;color:var(--ink-soft);transition:all .2s}
+.filters button.on,.filters button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{border:1px solid var(--line);background:#faf8f3;padding:24px;display:flex;flex-direction:column;min-height:330px;transition:border-color .2s,transform .2s,box-shadow .2s}
+.card:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:6px 6px 0 var(--paper-2)}
+.card .top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--brass);border-bottom:1px solid var(--line);padding-bottom:14px}
+.card h4{font-family:var(--serif);font-size:22px;line-height:1.45;margin:20px 0 6px;font-weight:600}
+.card .hint{font-size:12px;color:var(--ink-soft);margin-bottom:18px}
+.card ol{list-style:none;counter-reset:s;flex:1}
+.card li{counter-increment:s;position:relative;padding-left:28px;font-size:13px;line-height:1.8;color:var(--ink-soft);margin-bottom:10px}
+.card li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:2px;font-family:var(--mono);font-size:10px;color:var(--brass)}
+.card .bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:14px;margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.1em}
+.card .bottom a{border-bottom:1px solid var(--brass);color:var(--brass)}
+.copy{padding:5px 10px;border:1px solid var(--line);font-family:var(--mono);font-size:10px;letter-spacing:.08em;transition:all .2s}
+.copy:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ---------- notes ---------- */
+.notes{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px)}
+.note{border-top:1px solid var(--line);padding:22px 0;display:grid;grid-template-columns:88px 1fr auto;gap:20px;align-items:start;transition:padding-left .2s}
+.note:hover{padding-left:10px}
+.note .n{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--brass);padding-top:5px}
+.note h4{font-family:var(--serif);font-size:20px;line-height:1.5;font-weight:600}
+.note p{font-size:13px;line-height:1.8;color:var(--ink-soft);margin-top:8px;max-width:52ch}
+.note .t{font-family:var(--mono);font-size:10px;color:var(--ink-soft);white-space:nowrap;padding-top:5px}
+.placeholder{border:1px dashed var(--line);padding:30px;text-align:center;color:var(--ink-soft)}
+.placeholder .big{font-family:Georgia;font-size:44px;color:var(--line)}
+.placeholder p{font-size:13px;margin-top:12px;line-height:1.8}
+.placeholder .eyebrow{margin-bottom:10px}
+
+/* ---------- schema ---------- */
+.schema{background:var(--paper-2)}
+.schema-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,80px)}
+.schema p{line-height:1.95;color:var(--ink-soft);font-size:14px;margin-bottom:18px}
+.schema ul{list-style:none;font-size:13px;line-height:2.1;color:var(--ink-soft)}
+.schema ul li::before{content:"—";color:var(--brass);margin-right:10px}
+pre{background:var(--ink);color:#d9d2c3;padding:24px;overflow:auto;font-family:var(--mono);font-size:11px;line-height:1.8;border:1px solid var(--ink)}
+pre .k{color:#c9a978}pre .s{color:#7fe7ff}pre .c{color:#8e8576}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:40px 0 60px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot .brand{font-size:15px}
+.foot .mono{font-size:10px;letter-spacing:.12em;color:var(--ink-soft)}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .nav-right .v{display:none}
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;padding:18px 24px;gap:18px}
+  .nav-links.open{display:flex}
+  .menu-btn{display:block}
+  .manifesto-grid,.project,.notes,.schema-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .hero .sub{flex-direction:column;align-items:flex-start}
+  .project-art{min-height:300px}
+  .note{grid-template-columns:64px 1fr;gap:12px}
+  .note .t{grid-column:2;padding-top:0}
+}
+@media(max-width:520px){
+  .mosaic{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sec-head{flex-direction:column;gap:8px}
+  .nav{gap:10px}
+  .brand{font-size:12px;letter-spacing:.06em;white-space:nowrap;gap:8px}
+  .brand .mark{width:24px;height:24px;font-size:13px;flex:none}
+  .gh{font-size:9px;letter-spacing:.04em;padding:7px 8px;white-space:nowrap}
+  .menu-btn{font-size:17px}
+  .hero{padding-top:64px}
+  .hero .kicker{font-size:9px;letter-spacing:.14em;flex-wrap:wrap;gap:8px}
+  .hero .kicker::before{width:24px}
+  h1{font-size:clamp(26px,7.5vw,38px);line-height:1.3}
+  h1 em{white-space:normal}
+  h1 em::after{display:none}
+  .hero .sub{margin-top:36px}
+  .hero .sub p{font-size:13px}
+  .scroll-cue{font-size:10px}
+  .project-info h3{font-size:34px}
+  .card{padding:18px}
+  .note h4{font-size:17px}
+  pre{font-size:10px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="mark">C</span> ATELIER CLORIS</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#projects">项目档案</a><a href="#prompts">Prompt 卡片</a><a href="#notes">技术笔记</a><a href="#schema">归档规范</a>
+    </nav>
+    <div class="nav-right">
+      <span class="v">V1.0 / 2026</span>
+      <a class="gh" href="https://github.com/Cloris5" target="_blank" rel="noopener">GITHUB ↗</a>
+      <button class="menu-btn" id="menuBtn" aria-label="菜单">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker eyebrow">Guidelines V1.0 · 2026 · Personal Archive</div>
+      <h1>在 ATELIER CLORIS，<br>用<em>工程与设计的秩序</em><br>沉淀每一份实时创作。</h1>
+      <div class="sub">
+        <p>这里不是博客，而是一套可检索的创作档案。每个项目都有统一入口：先看概览与实时体验，再按需深入 Prompt 卡片、技术拆解与源码索引。放入即归档，随放随收。</p>
+        <a class="scroll-cue" href="#manifesto">向下滚动 · 展开体系 <span class="dot"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto" id="manifesto">
+    <div class="wrap">
+      <div class="eyebrow">Modular Knowledge System</div>
+      <div class="manifesto-grid">
+        <h2>从一张 Prompt 卡片，<br>到一个<span>可运行的实时 3D 世界</span>。<br>一处展开，随放随收。</h2>
+        <div>
+          <div class="mosaic" id="mosaic">
+            <div>01</div><div>02</div><div>03</div><div>04</div>
+            <div>05</div><div>06</div><div>07</div><div>08</div>
+          </div>
+          <p style="font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:#9b907d;margin-top:16px;line-height:1.9">PROJECTS / CARDS / NOTES / SCHEMA<br>所有档案以纯文本与单文件驱动。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>项目档案</h2>
+        <span class="idx">PROJECTS · 01 WORKS</span>
+      </div>
+      <div class="project reveal">
+        <div class="project-art">
+          <span class="tag">P01 / REALTIME · 2026.11.24</span>
+          <div class="clock" aria-hidden="true">
+            <div class="ring"></div><div class="ring two"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(30deg)"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(60deg)"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(90deg)"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(120deg)"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(150deg)"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(180deg)"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(210deg)"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(240deg)"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(270deg)"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(300deg)"></div>
+            <div class="tick" style="transform:translate(-50%,0) rotate(330deg)"></div>
+            <div class="hand h"></div><div class="hand m"></div><div class="hand s"></div>
+            <div class="hub"></div>
+          </div>
+          <span class="year">XII</span>
+        </div>
+        <div class="project-info">
+          <div class="meta"><span class="chip dark">P01</span><span class="chip">THREE.JS · WEBGL2 / GLSL3</span><span class="chip">12-PASS POST PIPELINE</span></div>
+          <h3>子夜钟楼</h3>
+          <div class="en">THE MIDNIGHT COLOSSUS</div>
+          <p>一座会走时的装饰派钟楼，一位校时师，与停在十二点的巨型机械。零外部模型、零照片贴图，全部由代码实时生成；从钟面窗光到 Boss 的十二记钟响，都是同一套时间秩序的一部分。</p>
+          <div class="stats">
+            <div><b>12</b><span>后期 PASS</span></div>
+            <div><b>07</b><span>幕关卡</span></div>
+            <div><b>04</b><span>PROMPT 卡</span></div>
+            <div><b>01</b><span>单文件</span></div>
+          </div>
+          <div class="links">
+            <a class="btn primary" href="projects/midnight-colossus.html" target="_blank">实时 3D 体验 <span class="ar">↗</span></a>
+            <a class="btn" href="#prompts">Prompt 卡片 <span class="ar">→</span></a>
+            <a class="btn" href="#notes">技术拆解 <span class="ar">→</span></a>
+            <a class="btn" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">源码 <span class="ar">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prompts">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Prompt 卡片库精选</h2>
+        <span class="idx">HORIZONTAL POOL · 04 CARDS</span>
+      </div>
+      <div class="filters reveal" id="filters">
+        <button class="on" data-f="all">全部 04</button>
+        <button data-f="pipeline">渲染管线</button>
+        <button data-f="material">材质光照</button>
+        <button data-f="system">工程稳定性</button>
+      </div>
+      <div class="cards" id="cards">
+        <article class="card reveal" data-c="pipeline">
+          <div class="top"><span>STAGE 01 · CARD #01</span><span>PIPELINE</span></div>
+          <h4>手写 12 Pass，<br>替换 EffectComposer</h4>
+          <p class="hint">后处理 · 每一段都可命名、计时、单独调试</p>
+          <ol>
+            <li>放弃黑盒堆叠，用 RawShaderMaterial + WebGLRenderTarget 自搭 12 段 Pass，每段独立可观测。</li>
+            <li>主渲染写入 HalfFloat HDR + MSAA + 浮点深度；半分辨率跑螺旋 SSAO 与双瓣 HG 体积光。</li>
+            <li>联合双边升采样回全分辨率，再走 6 级 Karis 泛光、中心加权自动曝光与 ACES/AgX 混合调色。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/midnight-colossus.html#L1185" target="_blank" rel="noopener">INSPECT → 渲染核心</a><button class="copy">复制 Prompt</button></div>
+        </article>
+        <article class="card reveal" data-c="material">
+          <div class="top"><span>STAGE 02 · CARD #02</span><span>LIGHTING</span></div>
+          <h4>窗光 PCSS：<br>Vogel 盘 + IGN 深度挖空</h4>
+          <p class="hint">阴影 · 光只能从钟面窗洞进来</p>
+          <ol>
+            <li>改写 ShaderChunk 里的 getShadow，用半径阈值区分 PCSS 与普通 PCF；启动时用最小场景自检，驱动拒绝即自动退回。</li>
+            <li>阴影相机只框住窗洞投影，做到 1 cm/texel，框外一律视为墙后阴影。</li>
+            <li>Vogel 盘采样配合 IGN 近似阻挡物搜索得到可变半影，窗棂在深度中挖空，避免整块死黑。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/midnight-colossus.html#L448" target="_blank" rel="noopener">INSPECT → PCSS 注入</a><button class="copy">复制 Prompt</button></div>
+        </article>
+        <article class="card reveal" data-c="material">
+          <div class="top"><span>STAGE 03 · CARD #03</span><span>MATERIAL</span></div>
+          <h4>MRT 程序化烘焙，<br>零照片贴图依赖</h4>
+          <p class="hint">材质 · 黄铜、钟面、齿轮全部由代码生成</p>
+          <ol>
+            <li>初始化阶段用多渲染目标一次烘焙固有色、金属度/粗糙度与法线，运行时只读结果。</li>
+            <li>三平面 whiteout 法线叠加大尺度噪声；各向异性金属高光配法线方差做高光抗锯齿。</li>
+            <li>磨损污渍用程序化遮罩控制，齿轮与零件走 InstancedMesh，数百物件仍保持低 draw call。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/midnight-colossus.html#L479" target="_blank" rel="noopener">INSPECT → 贴图烘焙</a><button class="copy">复制 Prompt</button></div>
+        </article>
+        <article class="card reveal" data-c="system">
+          <div class="top"><span>STAGE 04 · CARD #04</span><span>ROBUSTNESS</span></div>
+          <h4>动态分辨率 +<br>自检式前向退回</h4>
+          <p class="hint">工程 · 把「跑不起来」变成降级路径</p>
+          <ol>
+            <li>按像素预算自动缩放内部渲染分辨率，HDR 与半分辨率深度同步重分配，低端设备也能运行。</li>
+            <li>每个 Pass 挂错误探针：浮点目标缺失、着色器编译失败、GL 错误都会记录并切到 ACES 前向渲染。</li>
+            <li>开发层实时调节 PCSS 半影、泛光、曝光、分离色调与动态分辨率，参数即改即看。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/midnight-colossus.html#L1208" target="_blank" rel="noopener">INSPECT → 分辨率策略</a><button class="copy">复制 Prompt</button></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>技术笔记</h2>
+        <span class="idx">TECH NOTES · 02 ARTICLES</span>
+      </div>
+      <div class="notes">
+        <div>
+          <article class="note reveal">
+            <div class="n">N01 · P01</div>
+            <div><h4>《子夜钟楼》12 段后期管线的分工与取舍</h4><p>为什么弃用 EffectComposer：从 HalfFloat HDR 主渲染、线性深度、半分辨率 SSAO 与体积光，到 Karis 泛光、自动曝光、ACES/AgX 混合与 FXAA。以及每一段在什么设备上会被关掉。</p></div>
+            <div class="t">6 MIN</div>
+          </article>
+          <article class="note reveal">
+            <div class="n">N02 · P01</div>
+            <div><h4>从钟摆到 Boss：七幕关卡与「校准」机制</h4><p>大厅入口、齿轮廊、钟盘、踏拍、流星、十二响、停摆——七幕如何把「时间」同时做成场景、机关与战斗资源；右键命中前一瞬的校准如何改写全场时间。</p></div>
+            <div class="t">5 MIN</div>
+          </article>
+        </div>
+        <div class="placeholder reveal">
+          <div class="big">03 — 05</div>
+          <p>三条笔记位已预留。<br>按归档规范放入 Markdown，即可自动进入此处。</p>
+          <div class="eyebrow" style="margin-top:18px">TO BE ARCHIVED</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="schema" id="schema">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>归档规范</h2>
+        <span class="idx">SCHEMA · ADD PROJECTS &amp; NOTES</span>
+      </div>
+      <div class="schema-grid">
+        <div class="reveal">
+          <p>整套站点只有三类原子：项目、卡片、笔记。新增内容不需要改结构，只需要在对应的数据数组里追加一项，页面会自动重排。</p>
+          <ul>
+            <li>项目 = 一份可独立运行的单文件 HTML</li>
+            <li>Prompt 卡片 = 标题 + 三条步骤 + 源码锚点</li>
+            <li>技术笔记 = 编号 + 标题 + 摘要 + 阅读时长</li>
+            <li>标签决定卡片筛选分组，无需手写分类页</li>
+            <li>所有内容均可离线阅读，不依赖后端</li>
+          </ul>
+          <p style="margin-top:24px"><a class="btn" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">查看仓库结构 <span class="ar">↗</span></a></p>
+        </div>
+        <div class="reveal">
+<pre><span class="c">// 追加一个项目档案</span>
+PROJECTS.push({
+  <span class="k">id</span>: <span class="s">'P02'</span>,
+  <span class="k">title</span>: <span class="s">'下一件作品'</span>,
+  <span class="k">entry</span>: <span class="s">'projects/next-work.html'</span>,
+  <span class="k">tags</span>: [<span class="s">'THREE.JS'</span>, <span class="s">'GLSL'</span>]
+});
+
+<span class="c">// 追加一张 Prompt 卡片</span>
+CARDS.push({
+  <span class="k">stage</span>: 1,
+  <span class="k">title</span>: <span class="s">'渲染策略标题'</span>,
+  <span class="k">steps</span>: [<span class="s">'做法一'</span>, <span class="s">'做法二'</span>, <span class="s">'做法三'</span>],
+  <span class="k">inspect</span>: <span class="s">'#L1185'</span>
+});</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="brand"><span class="mark">C</span> ATELIER CLORIS</a>
+    <span class="mono">GUIDELINES V1.0 · BUILT WITH CODE · © 2026 CLORIS</span>
+    <a class="mono" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">SOURCE ↗</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var mb=document.getElementById('menuBtn'),nl=document.getElementById('navLinks');
+  mb.addEventListener('click',function(){nl.classList.toggle('open')});
+  nl.addEventListener('click',function(e){if(e.target.tagName==='A')nl.classList.remove('open')});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  var filters=document.getElementById('filters');
+  filters.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    filters.querySelectorAll('button').forEach(function(x){x.classList.remove('on')});
+    b.classList.add('on');
+    var f=b.dataset.f;
+    document.querySelectorAll('#cards .card').forEach(function(c){
+      c.style.display=(f==='all'||c.dataset.c===f)?'flex':'none';
+    });
+  });
+
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var card=btn.closest('.card');
+      var text=card.querySelector('h4').innerText.replace(/\n/g,' ')+'\n'+
+        Array.prototype.map.call(card.querySelectorAll('li'),function(li,i){return (i+1)+'. '+li.innerText}).join('\n');
+      var done=function(){var old=btn.textContent;btn.textContent='已复制 ✓';setTimeout(function(){btn.textContent=old},1600)};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fallback(text,done)})}
+      else fallback(text,done);
+    });
+  });
+  function fallback(text,cb){
+    var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');cb()}catch(e){}document.body.removeChild(ta);
+  }
+})();
+</script>
+</body>
+</html>
