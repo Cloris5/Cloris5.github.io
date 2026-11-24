@@ -90,6 +90,12 @@ section{padding:clamp(70px,10vh,130px) 0}
 @keyframes spin{to{transform:translate(-50%,0) rotate(360deg)}}
 .project-art .tag{position:absolute;left:18px;top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:#9b907d}
 .project-art .year{position:absolute;right:18px;bottom:16px;font-family:Georgia;font-size:clamp(40px,7vw,86px);color:rgba(232,217,181,.11);line-height:1}
+.project-art.galaxy{background:radial-gradient(ellipse at 50% 108%,#2A2E58 0%,#1E2540 44%,#0E1428 100%)}
+.project-art.galaxy::before{background:radial-gradient(1.5px 1.5px at 18% 24%,#fff,transparent),radial-gradient(1.5px 1.5px at 72% 18%,#fff,transparent),radial-gradient(2px 2px at 84% 42%,#f2d06a,transparent),radial-gradient(1px 1px at 32% 48%,#fff,transparent),radial-gradient(1.5px 1.5px at 58% 32%,#cbb8e6,transparent),radial-gradient(1px 1px at 90% 12%,#fff,transparent),radial-gradient(1px 1px at 10% 62%,#fff,transparent)}
+.galaxy .band{position:absolute;inset:-20%;background:linear-gradient(112deg,transparent 34%,rgba(138,106,160,.32) 46%,rgba(242,208,106,.14) 53%,rgba(138,106,160,.22) 60%,transparent 72%);filter:blur(24px)}
+.galaxy .road{position:absolute;left:50%;bottom:-22%;width:62%;height:80%;transform:translateX(-50%);clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);background:linear-gradient(180deg,rgba(28,32,62,.25),rgba(9,11,25,.96));border-top:1px solid rgba(242,208,106,.3)}
+.galaxy .road::after{content:"";position:absolute;left:50%;top:0;width:2px;height:100%;transform:translateX(-50%);background:repeating-linear-gradient(180deg,rgba(242,208,106,.8) 0 16px,transparent 16px 42px);filter:drop-shadow(0 0 7px rgba(242,208,106,.55))}
+.project-art.galaxy .year{color:rgba(242,208,106,.15)}
 .project-info{display:flex;flex-direction:column;justify-content:center}
 .project-info .meta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
 .chip{font-family:var(--mono);font-size:10px;letter-spacing:.12em;border:1px solid var(--line);padding:5px 9px;color:var(--ink-soft)}
@@ -243,9 +249,34 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>项目档案</h2>
-        <span class="idx">PROJECTS · 01 WORKS</span>
+        <span class="idx">PROJECTS · 02 WORKS</span>
       </div>
       <div class="project reveal">
+        <div class="project-art galaxy">
+          <span class="tag">P02 / REALTIME · 2026.11.24</span>
+          <div class="band"></div><div class="road"></div>
+          <span class="year">073</span>
+        </div>
+        <div class="project-info">
+          <div class="meta"><span class="chip dark">P02</span><span class="chip">THREE.JS · GLSL3 · GPGPU</span><span class="chip">HRTF SPATIAL AUDIO</span></div>
+          <h3>银河公路</h3>
+          <div class="en">THE MILKY WAY HIGHWAY</div>
+          <p>黄昏之后，沿 3.2 公里笔直的公路开往银河。废弃加油站还亮着灯，月见草在灯光掠过时一朵朵打开，两万片花瓣与光尘由 GPU 实时计算；角色、步态、风场与空间音频同样全部由代码生成。</p>
+          <div class="stats">
+            <div><b>20K</b><span>GPGPU 花瓣</span></div>
+            <div><b>6K</b><span>程序化星点</span></div>
+            <div><b>03</b><span>PROMPT 卡</span></div>
+            <div><b>45s</b><span>宣传片</span></div>
+          </div>
+          <div class="links">
+            <a class="btn primary" href="projects/galaxy-highway.html" target="_blank">实时 3D 体验 <span class="ar">↗</span></a>
+            <a class="btn" href="#prompts">Prompt 卡片 <span class="ar">→</span></a>
+            <a class="btn" href="#notes">技术拆解 <span class="ar">→</span></a>
+            <a class="btn" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">源码 <span class="ar">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="project reveal" style="margin-top:clamp(44px,7vw,96px)">
         <div class="project-art">
           <span class="tag">P01 / REALTIME · 2026.11.24</span>
           <div class="clock" aria-hidden="true">
@@ -292,13 +323,15 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>Prompt 卡片库精选</h2>
-        <span class="idx">HORIZONTAL POOL · 04 CARDS</span>
+        <span class="idx">HORIZONTAL POOL · 07 CARDS</span>
       </div>
       <div class="filters reveal" id="filters">
-        <button class="on" data-f="all">全部 04</button>
+        <button class="on" data-f="all">全部 07</button>
         <button data-f="pipeline">渲染管线</button>
         <button data-f="material">材质光照</button>
         <button data-f="system">工程稳定性</button>
+        <button data-f="world">场景与角色</button>
+        <button data-f="post">后期与音频</button>
       </div>
       <div class="cards" id="cards">
         <article class="card reveal" data-c="pipeline">
@@ -345,6 +378,39 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           </ol>
           <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/midnight-colossus.html#L1208" target="_blank" rel="noopener">INSPECT → 分辨率策略</a><button class="copy">复制 Prompt</button></div>
         </article>
+        <article class="card reveal" data-c="world">
+          <div class="top"><span>STAGE 05 · CARD #05</span><span>GPGPU</span></div>
+          <h4>GPGPU 驱动两万花瓣，<br>光轨长曝光成线</h4>
+          <p class="hint">场景 · 花粉、光尘、花瓣与爆发生命周期全在 GPU</p>
+          <ol>
+            <li>用 GPUComputationRenderer 同时更新速度与位置纹理，浮点不支持时自动退回 HalfFloat，顶点着色器按 gl_VertexID 取 texel。</li>
+            <li>两万片花瓣走 InstancedMesh，gl_InstanceID 采样位置纹理决定翻滚朝向，CPU 只维护生命周期比例。</li>
+            <li>公路光轨用 Catmull-Rom 曲线生成带宽光带，配合残影累积 Pass 只累积高亮，长曝光自然连成线。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/galaxy-highway.html#L1201" target="_blank" rel="noopener">INSPECT → GPGPU 粒子</a><button class="copy">复制 Prompt</button></div>
+        </article>
+        <article class="card reveal" data-c="world">
+          <div class="top"><span>STAGE 06 · CARD #06</span><span>CHARACTER</span></div>
+          <h4>全程序化角色：<br>无滑步步态与弹簧次级运动</h4>
+          <p class="hint">角色 · 头身比 1:3.2，33 根发束与 12 节飘带</p>
+          <ol>
+            <li>33 根 Catmull-Rom 扁平发束根粗尖细，用 aT 属性驱动弹簧次级运动；飘带走 12 节 Verlet 绳。</li>
+            <li>步态落脚点固定在世界坐标，摆动段预测着地点消除滑步；idle/walk/run/jump/skate/sit 状态机叠加 cast 上身层。</li>
+            <li>运动学胶囊半径 0.28，圆形与 AABB 滑动碰撞，配 0.1s 土狼时间与 0.12s 跳跃缓冲。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/galaxy-highway.html#L1431" target="_blank" rel="noopener">INSPECT → 角色构建</a><button class="copy">复制 Prompt</button></div>
+        </article>
+        <article class="card reveal" data-c="post">
+          <div class="top"><span>STAGE 07 · CARD #07</span><span>POST &amp; AUDIO</span></div>
+          <h4>电影级后期 +<br>HRTF 空间音频</h4>
+          <p class="hint">后期与声音 · 16 拍黄金角散景，三路音频总线</p>
+          <ol>
+            <li>EffectComposer 串接 GTAO、UnrealBloom 与自定义 DOF，焦点锁角色或主体，f/4.0 配 16 拍黄金角散景。</li>
+            <li>P07 残影与 X10 光绘累积共用一张 acc 纹理，只累积高亮；调色合并 Lift/Gamma/Gain、分离色调、Halation 与遮幅。</li>
+            <li>音频分 BGM / SFX / 环绕三路总线，路边花、加油站、路标各挂 HRTF PositionalAudio，ConvolverNode 生成 2.4s 程序化混响。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/galaxy-highway.html#L660" target="_blank" rel="noopener">INSPECT → 后期管线</a><button class="copy">复制 Prompt</button></div>
+        </article>
       </div>
     </div>
   </section>
@@ -353,7 +419,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>技术笔记</h2>
-        <span class="idx">TECH NOTES · 02 ARTICLES</span>
+        <span class="idx">TECH NOTES · 04 ARTICLES</span>
       </div>
       <div class="notes">
         <div>
@@ -367,10 +433,20 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
             <div><h4>从钟摆到 Boss：七幕关卡与「校准」机制</h4><p>大厅入口、齿轮廊、钟盘、踏拍、流星、十二响、停摆——七幕如何把「时间」同时做成场景、机关与战斗资源；右键命中前一瞬的校准如何改写全场时间。</p></div>
             <div class="t">5 MIN</div>
           </article>
+          <article class="note reveal">
+            <div class="n">N03 · P02</div>
+            <div><h4>《银河公路》：用 GPGPU 撑起两万片花瓣与一条会发光的光轨</h4><p>位置与速度双纹理如何在 GPU 上迭代、InstancedMesh 如何按 gl_InstanceID 取纹理、地面高度如何与网格同源，以及光轨怎样靠累积 Pass 变成一条长曝光。</p></div>
+            <div class="t">7 MIN</div>
+          </article>
+          <article class="note reveal">
+            <div class="n">N04 · P02</div>
+            <div><h4>从发束到凝视：程序化角色与三路空间音频</h4><p>33 根 Catmull-Rom 发束与 12 节 Verlet 飘带的弹簧逻辑、世界坐标落脚点如何消灭滑步；以及 HRTF PositionalAudio 与程序化混响怎样让加油站「真的在远处亮着」。</p></div>
+            <div class="t">6 MIN</div>
+          </article>
         </div>
         <div class="placeholder reveal">
-          <div class="big">03 — 05</div>
-          <p>三条笔记位已预留。<br>按归档规范放入 Markdown，即可自动进入此处。</p>
+          <div class="big">05 — 06</div>
+          <p>两条笔记位已预留。<br>按归档规范放入 Markdown，即可自动进入此处。</p>
           <div class="eyebrow" style="margin-top:18px">TO BE ARCHIVED</div>
         </div>
       </div>
