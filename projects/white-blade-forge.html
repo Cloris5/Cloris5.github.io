@@ -29,7 +29,7 @@ html,body{margin:0;height:100%;overflow:hidden;background:#0b0908;color:#C9B49A;
 window.__showErr=function(m){var e=document.getElementById('err');if(!e)return;e.style.display='block';e.textContent='3050-4-2-炽刃熔炉 · 出错了\n\n'+m;};
 window.onerror=function(m,s,l,c,e){window.__showErr(String(m)+'\n'+(s||'')+':'+(l||'')+'\n'+((e&&e.stack)||''));};
 window.addEventListener('unhandledrejection',function(e){var r=e.reason;if(r&&/pointer|lock|play\(\)|AbortError|NotAllowed/i.test(String(r&&r.message||r)))return;window.__showErr('Promise: '+String(r&&r.stack||r));});
-setTimeout(function(){var e=document.getElementById('err');if(!window.__booted&&!(e&&e.style.display==='block'))window.__showErr('模块未能启动:请检查网络能否访问 cdn.jsdelivr.net 上的 three@0.170.0\n(离线使用时把同版本的 build 与 examples/jsm 放到同目录并改 import map)');},12000);
+setTimeout(function(){var e=document.getElementById('err');if(!window.__booted&&!(e&&e.style.display==='block'))window.__showErr('模块未能启动:请检查网络能否访问 cdn.jsdelivr.net 上的 three@0.170.0\n(离线使用时把同版本的 build 与 examples/jsm 放到同目录并改 import map)');},45000);
 </script>
 <script type="importmap">
 {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}
