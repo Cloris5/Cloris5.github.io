@@ -109,6 +109,15 @@ section{padding:clamp(70px,10vh,130px) 0}
 .galaxy .road{position:absolute;left:50%;bottom:-22%;width:62%;height:80%;transform:translateX(-50%);clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);background:linear-gradient(180deg,rgba(28,32,62,.25),rgba(9,11,25,.96));border-top:1px solid rgba(242,208,106,.3)}
 .galaxy .road::after{content:"";position:absolute;left:50%;top:0;width:2px;height:100%;transform:translateX(-50%);background:repeating-linear-gradient(180deg,rgba(242,208,106,.8) 0 16px,transparent 16px 42px);filter:drop-shadow(0 0 7px rgba(242,208,106,.55))}
 .project-art.galaxy .year{color:rgba(242,208,106,.15)}
+.project-art.organ{background:linear-gradient(180deg,#d5dde1 0%,#aebbc4 44%,#697b88 100%)}
+.project-art.organ::before{background:repeating-linear-gradient(90deg,rgba(43,54,63,.07) 0 2px,transparent 2px 10px),radial-gradient(ellipse at 50% 0%,rgba(255,244,210,.65),transparent 58%)}
+.organ .cliff{position:absolute;top:0;bottom:0;width:28%;background:linear-gradient(90deg,#4d5b66,#8b99a3);clip-path:polygon(0 0,100% 12%,72% 40%,100% 68%,64% 100%,0 100%)}
+.organ .cliff.r{right:0;transform:scaleX(-1)}
+.organ .pipes{position:absolute;left:21%;right:21%;bottom:13%;height:56%;display:flex;align-items:flex-end;justify-content:center;gap:3px}
+.organ .pipes i{display:block;width:4.2%;background:linear-gradient(180deg,#E3B23C,#a9b4bb 22%,#4F6272);box-shadow:0 0 9px rgba(227,178,60,.28)}
+.organ .pipes i:nth-child(3n){height:62%}.organ .pipes i:nth-child(3n+1){height:94%}.organ .pipes i:nth-child(4n){height:74%}.organ .pipes i:nth-child(5n){height:100%}
+.organ .mist{position:absolute;left:0;right:0;bottom:6%;height:30%;background:linear-gradient(0deg,rgba(236,241,243,.9),rgba(236,241,243,0));filter:blur(7px)}
+.project-art.organ .year{color:rgba(79,98,114,.22)}
 .project-info{display:flex;flex-direction:column;justify-content:center}
 .project-info .meta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
 .chip{font-family:var(--mono);font-size:10px;letter-spacing:.12em;border:1px solid var(--line);padding:5px 9px;color:var(--ink-soft)}
@@ -253,7 +262,8 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           <div class="nitem"><b>03</b>纯代码实时场景 · 零贴图 / 零外部模型</div>
           <div class="nitem"><b>04</b>导演模式 · 45 秒宣传片一键录制</div>
           <div class="nitem"><b>05</b>HRTF 空间音频 · 让远处的加油站真的在远处</div>
-          <div class="nitem"><b>06</b>游戏 demo 在下方作品页面，可直接进入体验</div>
+          <div class="nitem"><b>06</b>管风琴峡 · 让一百二十根管在雾里齐鸣</div>
+          <div class="nitem"><b>07</b>游戏 demo 在下方作品页面，可直接进入体验</div>
         </div>
       </div>
       <div class="sub">
@@ -283,9 +293,36 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>项目档案</h2>
-        <span class="idx">PROJECTS · 02 WORKS</span>
+        <span class="idx">PROJECTS · 03 WORKS</span>
       </div>
       <div class="project reveal">
+        <div class="project-art organ">
+          <span class="tag">P03 / REALTIME · 2026.11.15</span>
+          <div class="cliff"></div><div class="cliff r"></div>
+          <div class="pipes"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="mist"></div>
+          <span class="year">410</span>
+        </div>
+        <div class="project-info">
+          <div class="meta"><span class="chip dark">P03</span><span class="chip">THREE.JS · GLSL3 · WEB AUDIO</span><span class="chip">VOLUMETRIC FOG PASS</span></div>
+          <h3>管风琴峡</h3>
+          <div class="en">THE ORGAN GORGE</div>
+          <p>你是风箱工。沿着峡谷打开五组音栓，按提示顺序鼓响两岸的音管，让声波在雾里干涉、相撞，开出通往下一关的雾桥；走到尽头踩下脚键盘长板，让一百二十根管一起鸣响。</p>
+          <div class="stats">
+            <div><b>120</b><span>程序化音管</span></div>
+            <div><b>05</b><span>音栓段落</span></div>
+            <div><b>15</b><span>拾遗收藏</span></div>
+            <div><b>03</b><span>PROMPT 卡</span></div>
+          </div>
+          <div class="links">
+            <a class="btn primary" href="projects/organ-gorge.html" target="_blank">实时 3D 体验 <span class="ar">↗</span></a>
+            <a class="btn" href="#prompts">Prompt 卡片 <span class="ar">→</span></a>
+            <a class="btn" href="#notes">技术拆解 <span class="ar">→</span></a>
+            <a class="btn" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">源码 <span class="ar">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="project reveal" style="margin-top:clamp(44px,7vw,96px)">
         <div class="project-art galaxy">
           <span class="tag">P02 / REALTIME · 2026.11.24</span>
           <div class="band"></div><div class="road"></div>
@@ -357,15 +394,16 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>Prompt 卡片库精选</h2>
-        <span class="idx">HORIZONTAL POOL · 07 CARDS</span>
+        <span class="idx">HORIZONTAL POOL · 10 CARDS</span>
       </div>
       <div class="filters reveal" id="filters">
-        <button class="on" data-f="all">全部 07</button>
+        <button class="on" data-f="all">全部 10</button>
         <button data-f="pipeline">渲染管线</button>
         <button data-f="material">材质光照</button>
         <button data-f="system">工程稳定性</button>
         <button data-f="world">场景与角色</button>
         <button data-f="post">后期与音频</button>
+        <button data-f="audio">声音与玩法</button>
       </div>
       <div class="cards" id="cards">
         <article class="card reveal" data-c="pipeline">
@@ -445,6 +483,39 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           </ol>
           <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/galaxy-highway.html#L660" target="_blank" rel="noopener">INSPECT → 后期管线</a><button class="copy">复制 Prompt</button></div>
         </article>
+        <article class="card reveal" data-c="pipeline">
+          <div class="top"><span>STAGE 08 · CARD #08</span><span>VOLUMETRIC</span></div>
+          <h4>声波雾环：<br>让声音在体积雾里干涉</h4>
+          <p class="hint">后期 · 深度重建世界坐标 + 有界盒体积步进</p>
+          <ol>
+            <li>自定义 FogRingPass 接在 RenderPass 后，从深度重建世界坐标，在有界盒内步进，环形 SDF 沿管轴上升扩张。</li>
+            <li>把多个音源当作球面波前，只取两两交叉项形成干涉条纹，再叠 HG 逆光散射，让雾真的被声音推开。</li>
+            <li>体积累积走半分辨率 HalfFloat RT，合成阶段用解析指数高度雾与 fbm 流动雾影补齐全谷，再接 Bloom、合并调色、SMAA 与 Output。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/organ-gorge.html#L222" target="_blank" rel="noopener">INSPECT → 声波雾环</a><button class="copy">复制 Prompt</button></div>
+        </article>
+        <article class="card reveal" data-c="material">
+          <div class="top"><span>STAGE 09 · CARD #09</span><span>MATERIAL</span></div>
+          <h4>onBeforeCompile 注入，<br>把金属与木头用旧</h4>
+          <p class="hint">材质 · 120 根管共用一套可参数化做旧逻辑</p>
+          <ol>
+            <li>注入锡铅管身：脚部收锥、沿管拉丝、fbm 斑驳氧化、流动雾影、唇口开缝与驻波节点自发光。</li>
+            <li>木管与栈桥走同一套路子：fbm 扭曲木纹、纵向纤维、缝隙漏光，木板在角色靠近时下沉。</li>
+            <li>角色用菲涅尔轮廓光在任何背景前读出剪影；脚键盘石板的刻槽在接近时亮起金色槽线。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/organ-gorge.html#L463" target="_blank" rel="noopener">INSPECT → 材质注入</a><button class="copy">复制 Prompt</button></div>
+        </article>
+        <article class="card reveal" data-c="audio">
+          <div class="top"><span>STAGE 10 · CARD #10</span><span>GAMEPLAY</span></div>
+          <h4>五段音栓 × 三关和声，<br>声音驱动整个峡谷</h4>
+          <p class="hint">玩法 · 确定性生成 + WebAudio 程序化合成</p>
+          <ol>
+            <li>CONFIG 纯数据驱动五段音栓、12 个音名与和弦表；120 根管按 5 × 12 实例化，全部用固定种子生成，不用 Math.random。</li>
+            <li>WebAudio 程序化合成管风琴、风箱、乱风、脚步与鸟鸣；声压统一写进 uniform，让草被推倒、雾环起纹、石板泛起涟漪。</li>
+            <li>三关从单音开路、三和弦到乱风里的和声进行，配 15 件收藏与 10 项成就；交互判定走三层距离 + 正面区与 0.1s 网格分桶。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/organ-gorge.html#L978" target="_blank" rel="noopener">INSPECT → 程序化音频</a><button class="copy">复制 Prompt</button></div>
+        </article>
       </div>
     </div>
   </section>
@@ -453,7 +524,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>技术笔记</h2>
-        <span class="idx">TECH NOTES · 04 ARTICLES</span>
+        <span class="idx">TECH NOTES · 06 ARTICLES</span>
       </div>
       <div class="notes">
         <div>
@@ -477,9 +548,19 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
             <div><h4>从发束到凝视：程序化角色与三路空间音频</h4><p>33 根 Catmull-Rom 发束与 12 节 Verlet 飘带的弹簧逻辑、世界坐标落脚点如何消灭滑步；以及 HRTF PositionalAudio 与程序化混响怎样让加油站「真的在远处亮着」。</p></div>
             <div class="t">6 MIN</div>
           </article>
+          <article class="note reveal">
+            <div class="n">N05 · P03</div>
+            <div><h4>《管风琴峡》：把干涉条纹写进体积雾 Pass</h4><p>有界盒步进、深度重建世界坐标、球面波前两两取交叉项得到干涉，再叠 HG 逆光散射；以及半分辨率体积累积如何与全谷解析高度雾合成。</p></div>
+            <div class="t">7 MIN</div>
+          </article>
+          <article class="note reveal">
+            <div class="n">N06 · P03</div>
+            <div><h4>一百二十根管怎么被「算」出来：配置驱动与声音反馈闭环</h4><p>五段音栓 × 12 音名的实例化布局、固定种子替代随机、WebAudio 合成音色与声压 uniform；以及声压如何同时推动草、雾环、涟漪与成就判定。</p></div>
+            <div class="t">6 MIN</div>
+          </article>
         </div>
         <div class="placeholder reveal">
-          <div class="big">05 — 06</div>
+          <div class="big">07 — 08</div>
           <p>两条笔记位已预留。<br>按归档规范放入 Markdown，即可自动进入此处。</p>
           <div class="eyebrow" style="margin-top:18px">TO BE ARCHIVED</div>
         </div>

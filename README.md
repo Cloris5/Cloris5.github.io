@@ -5,6 +5,7 @@ Cloris 的个人创作与研习档案库，部署于 GitHub Pages：<https://clo
 ## 结构
 
 - `index.html` — 站点首页：项目档案、Prompt 卡片、技术笔记、归档规范
+- `projects/organ-gorge.html` — P03《管风琴峡》实时 3D Demo（单文件，Three.js + WebAudio）
 - `projects/galaxy-highway.html` — P02《银河公路》实时 3D Demo（单文件，Three.js + GPGPU）
 - `projects/midnight-colossus.html` — P01《子夜钟楼》实时 3D Demo（单文件，Three.js 走 jsDelivr CDN）
 - `README.md` — 本说明
@@ -32,3 +33,5 @@ python3 -m http.server 8000
 《子夜钟楼》：WASD 移动 · 鼠标视角 · Shift 冲刺 · Space 跳 · 左键刺剑 · 右键校准（完美格挡）/ 重击 · Ctrl/E 闪步 · Q 拨针加速 · F 互动 · J 导演模式 · K 录制 · P 拍照
 
 《银河公路》：WASD 移动 · E 交互 · Space 跳 · C 切换视角 · 鼠标左键甩灯 · 1 滑板 / 2 表情 / 3 坐下 · B 全场开花 · P 导演演示 · R 一键录制 · G 图鉴 · M/N/J 三路音频 · X 切换 Look · V 版本信息
+
+《管风琴峡》：WASD 移动 · 鼠标拖拽环顾 · V 第一/第三人称 · E 互动与拉音栓 · Space 跳 · 长按 F 蓄风、松开鼓管 · L 指针锁定 · G 图鉴 · M 静音 · H 键位 · N 小地图 · Tab 参数面板 · Esc 暂停 · P 拍照
