@@ -1,4 +1,4 @@
-# ATELIER CLORIS
+# CLORIS
 
 Cloris 的个人创作与研习档案库，部署于 GitHub Pages：<https://cloris5.github.io/>
 
