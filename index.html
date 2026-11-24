@@ -60,6 +60,19 @@ h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.08
 .scroll-cue{font-family:var(--mono);font-size:11px;letter-spacing:.2em;white-space:nowrap;display:flex;align-items:center;gap:12px}
 .scroll-cue .dot{width:7px;height:7px;border:1px solid var(--brass);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{50%{background:var(--brass);transform:scale(1.3)}}
+.video-strip{max-width:940px;margin-top:30px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);padding:16px 18px;box-shadow:6px 6px 0 var(--paper-2)}
+.video-strip .vrow{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.video-strip .eyebrow{color:#c9a978;white-space:nowrap}
+.video-strip .vurl{font-family:var(--mono);font-size:12px;color:#7fe7ff;text-decoration:underline;text-underline-offset:4px;word-break:break-all}
+.video-strip .go{margin-left:auto;flex:none;border:1px solid #c9a978;color:#c9a978;font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:8px 13px;white-space:nowrap;transition:background .2s,color .2s}
+.video-strip .go:hover{background:#c9a978;color:var(--ink)}
+.video-strip .vsub{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:#9b907d;margin:15px 0 9px}
+.note-scroller{display:flex;gap:8px;overflow-x:auto;overflow-y:hidden;padding:0 0 10px;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:#c9a978 #3a352d}
+.note-scroller::-webkit-scrollbar{height:5px}
+.note-scroller::-webkit-scrollbar-track{background:#3a352d}
+.note-scroller::-webkit-scrollbar-thumb{background:#c9a978;border-radius:9px}
+.note-scroller .nitem{flex:0 0 auto;scroll-snap-align:start;border:1px solid #4a443a;background:#25221d;color:#d9d2c3;font-size:12px;line-height:1.6;padding:9px 13px;max-width:300px}
+.note-scroller .nitem b{font-family:var(--mono);font-size:10px;color:#c9a978;margin-right:10px;font-weight:400}
 
 /* ---------- manifesto ---------- */
 .manifesto{background:var(--ink);color:var(--paper);margin-top:30px}
@@ -191,6 +204,11 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
   h1{font-size:clamp(26px,7.5vw,38px);line-height:1.3}
   h1 em{white-space:normal}
   h1 em::after{display:none}
+  .video-strip{margin-top:22px;padding:13px}
+  .video-strip .vrow{gap:10px}
+  .video-strip .vurl{font-size:10px}
+  .video-strip .go{margin-left:0}
+  .note-scroller .nitem{font-size:11px;max-width:230px}
   .hero .sub{margin-top:36px}
   .hero .sub p{font-size:13px}
   .scroll-cue{font-size:10px}
@@ -222,6 +240,22 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
     <div class="wrap">
       <div class="kicker eyebrow">Guidelines V1.0 · 2026 · Personal Archive</div>
       <h1>在 CLORIS，<br>用<em>工程与设计的秩序</em><br>沉淀每一份实时创作。</h1>
+      <div class="video-strip">
+        <div class="vrow">
+          <span class="eyebrow">视频链接 · VIDEO</span>
+          <a class="vurl" href="https://xhslink.cn/o/3oWlWpLecrJ" target="_blank" rel="noopener">https://xhslink.cn/o/3oWlWpLecrJ</a>
+          <a class="go" href="https://xhslink.cn/o/3oWlWpLecrJ" target="_blank" rel="noopener">打开小红书 ↗</a>
+        </div>
+        <div class="vsub"><span>小红书笔记 · 精选 / NOTE HIGHLIGHTS</span><span>← 横向滚动 →</span></div>
+        <div class="note-scroller" tabindex="0" aria-label="小红书笔记精选，可横向滚动">
+          <div class="nitem"><b>01</b>子夜钟楼 · 12 段后期管线的减法渲染</div>
+          <div class="nitem"><b>02</b>银河公路 · 两万片花瓣在 GPU 上盛开</div>
+          <div class="nitem"><b>03</b>纯代码实时场景 · 零贴图 / 零外部模型</div>
+          <div class="nitem"><b>04</b>导演模式 · 45 秒宣传片一键录制</div>
+          <div class="nitem"><b>05</b>HRTF 空间音频 · 让远处的加油站真的在远处</div>
+          <div class="nitem"><b>06</b>游戏 demo 在下方作品页面，可直接进入体验</div>
+        </div>
+      </div>
       <div class="sub">
         <p>这里不是博客，而是一套可检索的创作档案。每个项目都有统一入口：先看概览与实时体验，再按需深入 Prompt 卡片、技术拆解与源码索引。放入即归档，随放随收。</p>
         <a class="scroll-cue" href="#manifesto">向下滚动 · 展开体系 <span class="dot"></span></a>
