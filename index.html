@@ -118,6 +118,19 @@ section{padding:clamp(70px,10vh,130px) 0}
 .organ .pipes i:nth-child(3n){height:62%}.organ .pipes i:nth-child(3n+1){height:94%}.organ .pipes i:nth-child(4n){height:74%}.organ .pipes i:nth-child(5n){height:100%}
 .organ .mist{position:absolute;left:0;right:0;bottom:6%;height:30%;background:linear-gradient(0deg,rgba(236,241,243,.9),rgba(236,241,243,0));filter:blur(7px)}
 .project-art.organ .year{color:rgba(79,98,114,.22)}
+.project-art.wave{background:linear-gradient(180deg,#b8dbe5 0%,#7fb4c4 38%,#2f6f7e 100%)}
+.project-art.wave::before{background:radial-gradient(ellipse at 62% 8%,rgba(255,255,255,.65),transparent 46%),repeating-linear-gradient(8deg,rgba(255,255,255,.06) 0 3px,transparent 3px 14px)}
+.wave .crest{position:absolute;left:-8%;right:-8%;bottom:-30%;height:78%;background:linear-gradient(180deg,rgba(221,238,240,.92) 0%,rgba(96,158,176,.9) 40%,rgba(16,38,45,.94) 100%);border-radius:50% 50% 0 0/76% 76% 0 0;transform:rotate(-6deg)}
+.wave .crest::after{content:"";position:absolute;left:0;right:0;top:6%;height:26%;background:repeating-linear-gradient(92deg,rgba(255,255,255,.7) 0 6px,rgba(179,220,230,.18) 6px 22px);filter:blur(3px);opacity:.8}
+.wave .city{position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(180deg,transparent,rgba(12,34,41,.86));clip-path:polygon(0 62%,7% 62%,7% 34%,14% 34%,14% 55%,22% 55%,22% 18%,30% 18%,30% 48%,38% 48%,38% 8%,46% 8%,46% 40%,55% 40%,55% 24%,64% 24%,64% 58%,72% 58%,72% 30%,81% 30%,81% 50%,90% 50%,90% 38%,100% 38%,100% 100%,0 100%)}
+.project-art.wave .year{color:rgba(221,238,240,.3)}
+.project-art.forge{background:radial-gradient(ellipse at 50% 92%,#8a3b12 0%,#3a1d12 46%,#160f0c 100%)}
+.project-art.forge::before{background:radial-gradient(ellipse at 50% 100%,rgba(255,160,50,.55),transparent 56%)}
+.forge .blade{position:absolute;left:50%;top:46%;width:12%;height:62%;transform:translate(-50%,-50%);clip-path:polygon(50% 0,100% 68%,62% 100%,38% 100%,0 68%);background:linear-gradient(180deg,#fff5d8 0%,#ffb347 22%,#c24a12 62%,#5a1d08 100%);box-shadow:0 0 50px rgba(255,150,40,.55);filter:drop-shadow(0 0 16px rgba(255,120,20,.7))}
+.forge .ring{position:absolute;left:50%;top:50%;width:56%;aspect-ratio:1;transform:translate(-50%,-50%);border:2px solid rgba(224,150,60,.34);border-radius:50%;box-shadow:0 0 40px rgba(224,120,30,.24),inset 0 0 40px rgba(224,120,30,.18)}
+.forge .ring.two{width:78%;border-style:dashed;opacity:.5;animation:spin 26s linear infinite}
+.forge .ember{position:absolute;left:0;right:0;bottom:0;height:40%;background:radial-gradient(2px 2px at 18% 70%,#ffb347,transparent),radial-gradient(2px 2px at 34% 40%,#ff8c2b,transparent),radial-gradient(3px 3px at 52% 62%,#ffd08a,transparent),radial-gradient(2px 2px at 68% 30%,#ff8c2b,transparent),radial-gradient(2px 2px at 82% 66%,#ffb347,transparent)}
+.project-art.forge .year{color:rgba(255,179,71,.2)}
 .project-info{display:flex;flex-direction:column;justify-content:center}
 .project-info .meta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
 .chip{font-family:var(--mono);font-size:10px;letter-spacing:.12em;border:1px solid var(--line);padding:5px 9px;color:var(--ink-soft)}
@@ -258,12 +271,13 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
         <div class="vsub"><span>小红书笔记 · 精选 / NOTE HIGHLIGHTS</span><span>← 横向滚动 →</span></div>
         <div class="note-scroller" tabindex="0" aria-label="小红书笔记精选，可横向滚动">
           <div class="nitem"><b>01</b>子夜钟楼 · 12 段后期管线的减法渲染</div>
-          <div class="nitem"><b>02</b>银河公路 · 两万片花瓣在 GPU 上盛开</div>
-          <div class="nitem"><b>03</b>纯代码实时场景 · 零贴图 / 零外部模型</div>
-          <div class="nitem"><b>04</b>导演模式 · 45 秒宣传片一键录制</div>
-          <div class="nitem"><b>05</b>HRTF 空间音频 · 让远处的加油站真的在远处</div>
-          <div class="nitem"><b>06</b>管风琴峡 · 让一百二十根管在雾里齐鸣</div>
-          <div class="nitem"><b>07</b>游戏 demo 在下方作品页面，可直接进入体验</div>
+          <div class="nitem"><b>02</b>浪墙 · fable middie 64 分钟游戏，把海平线立成一面墙</div>
+          <div class="nitem"><b>03</b>炽刃熔炉 · fable middie 64 分钟游戏，顶点温度烧红整把刀</div>
+          <div class="nitem"><b>04</b>银河公路 · 两万片花瓣在 GPU 上盛开</div>
+          <div class="nitem"><b>05</b>纯代码实时场景 · 零贴图 / 零外部模型</div>
+          <div class="nitem"><b>06</b>导演模式 · 45 秒宣传片一键录制</div>
+          <div class="nitem"><b>07</b>管风琴峡 · 让一百二十根管在雾里齐鸣</div>
+          <div class="nitem"><b>08</b>游戏 demo 在下方作品页面，可直接进入体验</div>
         </div>
       </div>
       <div class="sub">
@@ -293,61 +307,9 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>项目档案</h2>
-        <span class="idx">PROJECTS · 03 WORKS</span>
+        <span class="idx">PROJECTS · 05 WORKS</span>
       </div>
       <div class="project reveal">
-        <div class="project-art organ">
-          <span class="tag">P03 / REALTIME · 2026.11.15</span>
-          <div class="cliff"></div><div class="cliff r"></div>
-          <div class="pipes"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="mist"></div>
-          <span class="year">410</span>
-        </div>
-        <div class="project-info">
-          <div class="meta"><span class="chip dark">P03</span><span class="chip">THREE.JS · GLSL3 · WEB AUDIO</span><span class="chip">VOLUMETRIC FOG PASS</span></div>
-          <h3>管风琴峡</h3>
-          <div class="en">THE ORGAN GORGE</div>
-          <p>你是风箱工。沿着峡谷打开五组音栓，按提示顺序鼓响两岸的音管，让声波在雾里干涉、相撞，开出通往下一关的雾桥；走到尽头踩下脚键盘长板，让一百二十根管一起鸣响。</p>
-          <div class="stats">
-            <div><b>120</b><span>程序化音管</span></div>
-            <div><b>05</b><span>音栓段落</span></div>
-            <div><b>15</b><span>拾遗收藏</span></div>
-            <div><b>03</b><span>PROMPT 卡</span></div>
-          </div>
-          <div class="links">
-            <a class="btn primary" href="projects/organ-gorge.html" target="_blank">实时 3D 体验 <span class="ar">↗</span></a>
-            <a class="btn" href="#prompts">Prompt 卡片 <span class="ar">→</span></a>
-            <a class="btn" href="#notes">技术拆解 <span class="ar">→</span></a>
-            <a class="btn" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">源码 <span class="ar">↗</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="project reveal" style="margin-top:clamp(44px,7vw,96px)">
-        <div class="project-art galaxy">
-          <span class="tag">P02 / REALTIME · 2026.11.24</span>
-          <div class="band"></div><div class="road"></div>
-          <span class="year">073</span>
-        </div>
-        <div class="project-info">
-          <div class="meta"><span class="chip dark">P02</span><span class="chip">THREE.JS · GLSL3 · GPGPU</span><span class="chip">HRTF SPATIAL AUDIO</span></div>
-          <h3>银河公路</h3>
-          <div class="en">THE MILKY WAY HIGHWAY</div>
-          <p>黄昏之后，沿 3.2 公里笔直的公路开往银河。废弃加油站还亮着灯，月见草在灯光掠过时一朵朵打开，两万片花瓣与光尘由 GPU 实时计算；角色、步态、风场与空间音频同样全部由代码生成。</p>
-          <div class="stats">
-            <div><b>20K</b><span>GPGPU 花瓣</span></div>
-            <div><b>6K</b><span>程序化星点</span></div>
-            <div><b>03</b><span>PROMPT 卡</span></div>
-            <div><b>45s</b><span>宣传片</span></div>
-          </div>
-          <div class="links">
-            <a class="btn primary" href="projects/galaxy-highway.html" target="_blank">实时 3D 体验 <span class="ar">↗</span></a>
-            <a class="btn" href="#prompts">Prompt 卡片 <span class="ar">→</span></a>
-            <a class="btn" href="#notes">技术拆解 <span class="ar">→</span></a>
-            <a class="btn" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">源码 <span class="ar">↗</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="project reveal" style="margin-top:clamp(44px,7vw,96px)">
         <div class="project-art">
           <span class="tag">P01 / REALTIME · 2026.11.24</span>
           <div class="clock" aria-hidden="true">
@@ -387,6 +349,108 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           </div>
         </div>
       </div>
+      <div class="project reveal" style="margin-top:clamp(44px,7vw,96px)">
+        <div class="project-art wave">
+          <span class="tag">P02 / FABLE MIDDIE · 64 MIN</span>
+          <div class="crest"></div><div class="city"></div>
+          <span class="year">331</span>
+        </div>
+        <div class="project-info">
+          <div class="meta"><span class="chip dark">P02</span><span class="chip">FABLE MIDDIE · 64 分钟游戏</span><span class="chip">CURL WAVE · HRTF AUDIO</span></div>
+          <h3>浪墙</h3>
+          <div class="en">THE WALL OF WATER · 冲浪救援逃生</div>
+          <p>海平线被抬成一面两百米的卷浪，城市正迎面撞上它。你踩着浪壁压板切浪、俯冲取速，用救援索把遇难者一个拉上浪尖。参数化卷浪截面、Gerstner 细浪与解析泡沫撑起整面水墙；折楼、残骸与白沫前锋同时压来，14 镜导演模式把这场逃生剪成 60 秒预告。</p>
+          <div class="stats">
+            <div><b>09</b><span>救援目标</span></div>
+            <div><b>07</b><span>幕场景</span></div>
+            <div><b>14</b><span>导演镜头</span></div>
+            <div><b>64</b><span>分钟游戏</span></div>
+          </div>
+          <div class="links">
+            <a class="btn primary" href="projects/wave-wall.html" target="_blank">实时 3D 体验 <span class="ar">↗</span></a>
+            <a class="btn" href="#prompts">Prompt 卡片 <span class="ar">→</span></a>
+            <a class="btn" href="#notes">技术拆解 <span class="ar">→</span></a>
+            <a class="btn" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">源码 <span class="ar">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="project reveal" style="margin-top:clamp(44px,7vw,96px)">
+        <div class="project-art forge">
+          <span class="tag">P03 / FABLE MIDDIE · 64 MIN</span>
+          <div class="ring"></div><div class="ring two"></div><div class="blade"></div><div class="ember"></div>
+          <span class="year">410</span>
+        </div>
+        <div class="project-info">
+          <div class="meta"><span class="chip dark">P03</span><span class="chip">FABLE MIDDIE · 64 分钟游戏</span><span class="chip">GTAO · BLACKBODY HEAT</span></div>
+          <h3>炽刃熔炉</h3>
+          <div class="en">FORGE OF THE WHITE BLADE · 炽刃断甲</div>
+          <p>在穹顶熔炉里锻一把会记忆温度的刀。顶点温度驱动黑体色带与热浪抖动，甲片随淬火与炉火由暗红烧到炽白；GTAO、Bloom、调色、SMAA 串成后期链。炉卫骑士、炉渣傀儡与三阶段铸铁巨卫同场，风箱、水槽、锻锤都可近身互动，三幕流程全程 120Hz 固定步长。</p>
+          <div class="stats">
+            <div><b>03</b><span>幕关卡</span></div>
+            <div><b>6K</b><span>GPU 火星</span></div>
+            <div><b>120</b><span>Hz 固定步长</span></div>
+            <div><b>64</b><span>分钟游戏</span></div>
+          </div>
+          <div class="links">
+            <a class="btn primary" href="projects/white-blade-forge.html" target="_blank">实时 3D 体验 <span class="ar">↗</span></a>
+            <a class="btn" href="#prompts">Prompt 卡片 <span class="ar">→</span></a>
+            <a class="btn" href="#notes">技术拆解 <span class="ar">→</span></a>
+            <a class="btn" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">源码 <span class="ar">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="project reveal" style="margin-top:clamp(44px,7vw,96px)">
+        <div class="project-art galaxy">
+          <span class="tag">P04 / REALTIME · 2026.11.24</span>
+          <div class="band"></div><div class="road"></div>
+          <span class="year">073</span>
+        </div>
+        <div class="project-info">
+          <div class="meta"><span class="chip dark">P04</span><span class="chip">THREE.JS · GLSL3 · GPGPU</span><span class="chip">HRTF SPATIAL AUDIO</span></div>
+          <h3>银河公路</h3>
+          <div class="en">THE MILKY WAY HIGHWAY</div>
+          <p>黄昏之后，沿 3.2 公里笔直的公路开往银河。废弃加油站还亮着灯，月见草在灯光掠过时一朵朵打开，两万片花瓣与光尘由 GPU 实时计算；角色、步态、风场与空间音频同样全部由代码生成。</p>
+          <div class="stats">
+            <div><b>20K</b><span>GPGPU 花瓣</span></div>
+            <div><b>6K</b><span>程序化星点</span></div>
+            <div><b>03</b><span>PROMPT 卡</span></div>
+            <div><b>45s</b><span>宣传片</span></div>
+          </div>
+          <div class="links">
+            <a class="btn primary" href="projects/galaxy-highway.html" target="_blank">实时 3D 体验 <span class="ar">↗</span></a>
+            <a class="btn" href="#prompts">Prompt 卡片 <span class="ar">→</span></a>
+            <a class="btn" href="#notes">技术拆解 <span class="ar">→</span></a>
+            <a class="btn" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">源码 <span class="ar">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="project reveal" style="margin-top:clamp(44px,7vw,96px)">
+        <div class="project-art organ">
+          <span class="tag">P05 / REALTIME · 2026.11.15</span>
+          <div class="cliff"></div><div class="cliff r"></div>
+          <div class="pipes"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="mist"></div>
+          <span class="year">410</span>
+        </div>
+        <div class="project-info">
+          <div class="meta"><span class="chip dark">P05</span><span class="chip">THREE.JS · GLSL3 · WEB AUDIO</span><span class="chip">VOLUMETRIC FOG PASS</span></div>
+          <h3>管风琴峡</h3>
+          <div class="en">THE ORGAN GORGE</div>
+          <p>你是风箱工。沿着峡谷打开五组音栓，按提示顺序鼓响两岸的音管，让声波在雾里干涉、相撞，开出通往下一关的雾桥；走到尽头踩下脚键盘长板，让一百二十根管一起鸣响。</p>
+          <div class="stats">
+            <div><b>120</b><span>程序化音管</span></div>
+            <div><b>05</b><span>音栓段落</span></div>
+            <div><b>15</b><span>拾遗收藏</span></div>
+            <div><b>03</b><span>PROMPT 卡</span></div>
+          </div>
+          <div class="links">
+            <a class="btn primary" href="projects/organ-gorge.html" target="_blank">实时 3D 体验 <span class="ar">↗</span></a>
+            <a class="btn" href="#prompts">Prompt 卡片 <span class="ar">→</span></a>
+            <a class="btn" href="#notes">技术拆解 <span class="ar">→</span></a>
+            <a class="btn" href="https://github.com/Cloris5/Cloris5.github.io" target="_blank" rel="noopener">源码 <span class="ar">↗</span></a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -394,10 +458,10 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>Prompt 卡片库精选</h2>
-        <span class="idx">HORIZONTAL POOL · 10 CARDS</span>
+        <span class="idx">HORIZONTAL POOL · 12 CARDS</span>
       </div>
       <div class="filters reveal" id="filters">
-        <button class="on" data-f="all">全部 10</button>
+        <button class="on" data-f="all">全部 12</button>
         <button data-f="pipeline">渲染管线</button>
         <button data-f="material">材质光照</button>
         <button data-f="system">工程稳定性</button>
@@ -451,7 +515,29 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/midnight-colossus.html#L1208" target="_blank" rel="noopener">INSPECT → 分辨率策略</a><button class="copy">复制 Prompt</button></div>
         </article>
         <article class="card reveal" data-c="world">
-          <div class="top"><span>STAGE 05 · CARD #05</span><span>GPGPU</span></div>
+          <div class="top"><span>STAGE 05 · CARD #05</span><span>CURL WAVE</span></div>
+          <h4>参数化卷浪曲面，<br>把海平线立成一面墙</h4>
+          <p class="hint">场景 · 冲浪空间里的物理、泡沫与相机</p>
+          <ol>
+            <li>用参数化截面沿浪峰挤出卷浪曲面（E11），Gerstner 细浪（W02）与解析交界泡沫（W04）叠加，次表面透色近似（S10）让浪壁透光。</li>
+            <li>浪面走 s 沿浪、h 浪高的专用坐标系，角色控制器、相机回缩与液滴飞溅池全部在同一空间里计算，避免穿模。</li>
+            <li>可破坏实例折楼 + 碎块池（E06）与程序化窗光楼群（E03）撑起城市，尾迹贴花用 64 点环形缓冲，14 镜导演模式剪成 60 秒预告。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/wave-wall.html#L354" target="_blank" rel="noopener">INSPECT → 卷浪曲面</a><button class="copy">复制 Prompt</button></div>
+        </article>
+        <article class="card reveal" data-c="material">
+          <div class="top"><span>STAGE 06 · CARD #06</span><span>HEAT</span></div>
+          <h4>顶点温度 → 黑体色带，<br>让刀与甲一起烧红</h4>
+          <p class="hint">材质 · 炽刃熔炉的招牌温度着色</p>
+          <ol>
+            <li>顶点携带温度属性，着色器映射黑体色带并按进度加热甲缝，热浪用顶点抖动表现；uHeroPos 与 uProgress 同时驱动全场。</li>
+            <li>后期链 RenderPass → GTAO → Bloom → 合并调色 → SMAA → Output，HalfFloat RT 上只做一次色调映射；GTAO 阶段临时隐藏所有透明特效。</li>
+            <li>6000 粒火星与余烬走实例四边形，出生后位置全在顶点着色器里算，CPU 只写出生数据；布料皮裙用 Verlet 10×14 网格。</li>
+          </ol>
+          <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/white-blade-forge.html#L313" target="_blank" rel="noopener">INSPECT → 温度着色</a><button class="copy">复制 Prompt</button></div>
+        </article>
+        <article class="card reveal" data-c="world">
+          <div class="top"><span>STAGE 07 · CARD #07</span><span>GPGPU</span></div>
           <h4>GPGPU 驱动两万花瓣，<br>光轨长曝光成线</h4>
           <p class="hint">场景 · 花粉、光尘、花瓣与爆发生命周期全在 GPU</p>
           <ol>
@@ -462,7 +548,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/galaxy-highway.html#L1201" target="_blank" rel="noopener">INSPECT → GPGPU 粒子</a><button class="copy">复制 Prompt</button></div>
         </article>
         <article class="card reveal" data-c="world">
-          <div class="top"><span>STAGE 06 · CARD #06</span><span>CHARACTER</span></div>
+          <div class="top"><span>STAGE 08 · CARD #08</span><span>CHARACTER</span></div>
           <h4>全程序化角色：<br>无滑步步态与弹簧次级运动</h4>
           <p class="hint">角色 · 头身比 1:3.2，33 根发束与 12 节飘带</p>
           <ol>
@@ -473,7 +559,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/galaxy-highway.html#L1431" target="_blank" rel="noopener">INSPECT → 角色构建</a><button class="copy">复制 Prompt</button></div>
         </article>
         <article class="card reveal" data-c="post">
-          <div class="top"><span>STAGE 07 · CARD #07</span><span>POST &amp; AUDIO</span></div>
+          <div class="top"><span>STAGE 09 · CARD #09</span><span>POST &amp; AUDIO</span></div>
           <h4>电影级后期 +<br>HRTF 空间音频</h4>
           <p class="hint">后期与声音 · 16 拍黄金角散景，三路音频总线</p>
           <ol>
@@ -484,7 +570,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/galaxy-highway.html#L660" target="_blank" rel="noopener">INSPECT → 后期管线</a><button class="copy">复制 Prompt</button></div>
         </article>
         <article class="card reveal" data-c="pipeline">
-          <div class="top"><span>STAGE 08 · CARD #08</span><span>VOLUMETRIC</span></div>
+          <div class="top"><span>STAGE 10 · CARD #10</span><span>VOLUMETRIC</span></div>
           <h4>声波雾环：<br>让声音在体积雾里干涉</h4>
           <p class="hint">后期 · 深度重建世界坐标 + 有界盒体积步进</p>
           <ol>
@@ -495,7 +581,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/organ-gorge.html#L222" target="_blank" rel="noopener">INSPECT → 声波雾环</a><button class="copy">复制 Prompt</button></div>
         </article>
         <article class="card reveal" data-c="material">
-          <div class="top"><span>STAGE 09 · CARD #09</span><span>MATERIAL</span></div>
+          <div class="top"><span>STAGE 11 · CARD #11</span><span>MATERIAL</span></div>
           <h4>onBeforeCompile 注入，<br>把金属与木头用旧</h4>
           <p class="hint">材质 · 120 根管共用一套可参数化做旧逻辑</p>
           <ol>
@@ -506,7 +592,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           <div class="bottom"><a href="https://github.com/Cloris5/Cloris5.github.io/blob/main/projects/organ-gorge.html#L463" target="_blank" rel="noopener">INSPECT → 材质注入</a><button class="copy">复制 Prompt</button></div>
         </article>
         <article class="card reveal" data-c="audio">
-          <div class="top"><span>STAGE 10 · CARD #10</span><span>GAMEPLAY</span></div>
+          <div class="top"><span>STAGE 12 · CARD #12</span><span>GAMEPLAY</span></div>
           <h4>五段音栓 × 三关和声，<br>声音驱动整个峡谷</h4>
           <p class="hint">玩法 · 确定性生成 + WebAudio 程序化合成</p>
           <ol>
@@ -524,7 +610,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
     <div class="wrap">
       <div class="sec-head reveal">
         <h2>技术笔记</h2>
-        <span class="idx">TECH NOTES · 06 ARTICLES</span>
+        <span class="idx">TECH NOTES · 10 ARTICLES</span>
       </div>
       <div class="notes">
         <div>
@@ -540,27 +626,47 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           </article>
           <article class="note reveal">
             <div class="n">N03 · P02</div>
-            <div><h4>《银河公路》：用 GPGPU 撑起两万片花瓣与一条会发光的光轨</h4><p>位置与速度双纹理如何在 GPU 上迭代、InstancedMesh 如何按 gl_InstanceID 取纹理、地面高度如何与网格同源，以及光轨怎样靠累积 Pass 变成一条长曝光。</p></div>
+            <div><h4>《浪墙》：把海平线立成一面可冲的卷浪</h4><p>参数化截面沿浪峰挤出卷浪曲面（E11），Gerstner 细浪、解析交界泡沫与次表面透色逐层叠加；s 沿浪、h 浪高的专用坐标系如何统一控制器、相机回缩与液滴飞溅。</p></div>
             <div class="t">7 MIN</div>
           </article>
           <article class="note reveal">
             <div class="n">N04 · P02</div>
-            <div><h4>从发束到凝视：程序化角色与三路空间音频</h4><p>33 根 Catmull-Rom 发束与 12 节 Verlet 飘带的弹簧逻辑、世界坐标落脚点如何消灭滑步；以及 HRTF PositionalAudio 与程序化混响怎样让加油站「真的在远处亮着」。</p></div>
+            <div><h4>救援索、折楼与白沫前锋：一场 9 人生死逃生的难度曲线</h4><p>七幕场景从防波堤推到浪管与救援飞艇，三类压力（残骸、浪唇、倒楼）如何交替出现；喷射档位、检查点与 14 镜导演模式怎样服务一条 64 分钟流程的切片。</p></div>
             <div class="t">6 MIN</div>
           </article>
           <article class="note reveal">
             <div class="n">N05 · P03</div>
-            <div><h4>《管风琴峡》：把干涉条纹写进体积雾 Pass</h4><p>有界盒步进、深度重建世界坐标、球面波前两两取交叉项得到干涉，再叠 HG 逆光散射；以及半分辨率体积累积如何与全谷解析高度雾合成。</p></div>
+            <div><h4>《炽刃熔炉》：用顶点温度把黑体色带烧进甲片</h4><p>温度属性如何映射黑体辐射色、按进度加热甲缝并用顶点抖动表现热浪；RenderPass → GTAO → Bloom → SMAA → Output 的后期链为何只在最后做一次色调映射，以及 GTAO 阶段怎么临时隐藏透明特效。</p></div>
             <div class="t">7 MIN</div>
           </article>
           <article class="note reveal">
             <div class="n">N06 · P03</div>
+            <div><h4>120Hz 固定步长下的三幕战斗与全程序化布料</h4><p>炉卫骑士的姿势表、三次插值与交叉淡化如何接 IK；6000 粒火星出生数据在顶点着色器里算、CPU 只写出生；10×14 Verlet 皮裙与风箱、水槽、锻锤的近身互动如何共用一张确定性输入表。</p></div>
+            <div class="t">6 MIN</div>
+          </article>
+          <article class="note reveal">
+            <div class="n">N07 · P04</div>
+            <div><h4>《银河公路》：用 GPGPU 撑起两万片花瓣与一条会发光的光轨</h4><p>位置与速度双纹理如何在 GPU 上迭代、InstancedMesh 如何按 gl_InstanceID 取纹理、地面高度如何与网格同源，以及光轨怎样靠累积 Pass 变成一条长曝光。</p></div>
+            <div class="t">7 MIN</div>
+          </article>
+          <article class="note reveal">
+            <div class="n">N08 · P04</div>
+            <div><h4>从发束到凝视：程序化角色与三路空间音频</h4><p>33 根 Catmull-Rom 发束与 12 节 Verlet 飘带的弹簧逻辑、世界坐标落脚点如何消灭滑步；以及 HRTF PositionalAudio 与程序化混响怎样让加油站「真的在远处亮着」。</p></div>
+            <div class="t">6 MIN</div>
+          </article>
+          <article class="note reveal">
+            <div class="n">N09 · P05</div>
+            <div><h4>《管风琴峡》：把干涉条纹写进体积雾 Pass</h4><p>有界盒步进、深度重建世界坐标、球面波前两两取交叉项得到干涉，再叠 HG 逆光散射；以及半分辨率体积累积如何与全谷解析高度雾合成。</p></div>
+            <div class="t">7 MIN</div>
+          </article>
+          <article class="note reveal">
+            <div class="n">N10 · P05</div>
             <div><h4>一百二十根管怎么被「算」出来：配置驱动与声音反馈闭环</h4><p>五段音栓 × 12 音名的实例化布局、固定种子替代随机、WebAudio 合成音色与声压 uniform；以及声压如何同时推动草、雾环、涟漪与成就判定。</p></div>
             <div class="t">6 MIN</div>
           </article>
         </div>
         <div class="placeholder reveal">
-          <div class="big">07 — 08</div>
+          <div class="big">11 — 12</div>
           <p>两条笔记位已预留。<br>按归档规范放入 Markdown，即可自动进入此处。</p>
           <div class="eyebrow" style="margin-top:18px">TO BE ARCHIVED</div>
         </div>

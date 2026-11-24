@@ -5,9 +5,11 @@ Cloris 的个人创作与研习档案库，部署于 GitHub Pages：<https://clo
 ## 结构
 
 - `index.html` — 站点首页：项目档案、Prompt 卡片、技术笔记、归档规范
-- `projects/organ-gorge.html` — P03《管风琴峡》实时 3D Demo（单文件，Three.js + WebAudio）
-- `projects/galaxy-highway.html` — P02《银河公路》实时 3D Demo（单文件，Three.js + GPGPU）
 - `projects/midnight-colossus.html` — P01《子夜钟楼》实时 3D Demo（单文件，Three.js 走 jsDelivr CDN）
+- `projects/wave-wall.html` — P02《浪墙》实时 3D Demo（fable middie · 64 分钟游戏；参数化卷浪 / HRTF 音频）
+- `projects/white-blade-forge.html` — P03《炽刃熔炉》实时 3D Demo（fable middie · 64 分钟游戏；GTAO / 黑体温度着色）
+- `projects/galaxy-highway.html` — P04《银河公路》实时 3D Demo（单文件，Three.js + GPGPU）
+- `projects/organ-gorge.html` — P05《管风琴峡》实时 3D Demo（单文件，Three.js + WebAudio）
 - `README.md` — 本说明
 
 ## 新增内容
@@ -31,6 +33,10 @@ python3 -m http.server 8000
 ## 操作提示
 
 《子夜钟楼》：WASD 移动 · 鼠标视角 · Shift 冲刺 · Space 跳 · 左键刺剑 · 右键校准（完美格挡）/ 重击 · Ctrl/E 闪步 · Q 拨针加速 · F 互动 · J 导演模式 · K 录制 · P 拍照
+
+《浪墙》：A/D 压板切浪 · W 俯冲取速 / S 回切上浪 · Shift 喷射 · Space 浪顶腾空 / 小跳 · Q/E 空中转体 · 左键救援索 · 右键回看白沫前锋 · F 腾空时向飞艇挥手 · T 第一/第三人称 · J 导演模式 · K 录制 · P 拍照 · 手柄：左摇杆 / A 跳 / X 救援 / RT 喷射
+
+《炽刃熔炉》：WASD 移动 · 鼠标左键挥刃（按住蓄力）· 右键格挡 · Shift 冲刺 · Space 跳 · E 互动 · F 淬火 · X 锁定 · V 切视角 · 长按 R 重开 · Tab 参数面板 · O 导演台 · K 录制 · J 10 秒钩子 · T 照片模式 · M 静音 · H 界面 · L 低端模式 · Esc 暂停
 
 《银河公路》：WASD 移动 · E 交互 · Space 跳 · C 切换视角 · 鼠标左键甩灯 · 1 滑板 / 2 表情 / 3 坐下 · B 全场开花 · P 导演演示 · R 一键录制 · G 图鉴 · M/N/J 三路音频 · X 切换 Look · V 版本信息
 
