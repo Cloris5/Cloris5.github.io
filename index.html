@@ -150,6 +150,18 @@ section{padding:clamp(70px,10vh,130px) 0}
 .btn:not(.primary):hover{background:var(--paper-2)}
 .btn .ar{font-family:var(--mono);font-size:15px}
 
+/* ---------- live capture reel ---------- */
+.reel-section{padding:0 0 clamp(64px,8vh,110px)}
+.reel-figure{position:relative;margin:0;border:1px solid var(--ink);background:#171713;overflow:hidden}
+.reel-figure::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.055) 0 1px,transparent 1px 4px)}
+.reel-figure picture,.reel-figure img{display:block;width:100%}
+.reel-figure img{height:auto}
+.reel-badge{position:absolute;left:0;top:0;z-index:1;display:flex;align-items:center;gap:9px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:.16em;padding:10px 14px}
+.reel-badge i{width:7px;height:7px;border-radius:50%;background:#a4412c;animation:blink 1.4s steps(1,end) infinite}
+@keyframes blink{50%{opacity:.25}}
+.reel-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border:1px solid var(--line);border-top:0;padding:13px 16px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--ink-soft)}
+.reel-meta b{color:var(--ink);font-weight:400}
+
 /* ---------- prompt cards ---------- */
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin:-16px 0 30px}
 .filters button{font-family:var(--mono);font-size:10px;letter-spacing:.12em;border:1px solid var(--line);padding:7px 13px;color:var(--ink-soft);transition:all .2s}
@@ -451,6 +463,23 @@ footer{border-top:1px solid var(--line);padding:40px 0 60px}
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="reel-section" id="reel" aria-label="实时创作录制片段">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>实时创作现场</h2>
+        <span class="idx">LIVE CAPTURE · LOOP 10S</span>
+      </div>
+      <figure class="reel-figure reveal">
+        <span class="reel-badge"><i aria-hidden="true"></i>REC · 2026.11.24</span>
+        <picture>
+          <source srcset="assets/live-capture.webp" type="image/webp">
+          <img src="assets/live-capture.gif" alt="实时 3D 场景循环录制：程序化花田、风车、村舍与渲染调试面板" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+      <div class="reel-meta reveal"><span><b>SCENE 01</b> · 程序化花田 / 风车 / 动态光照</span><span>4096×1946 SOURCE · 12 FPS · ∞ LOOP</span></div>
     </div>
   </section>
 
